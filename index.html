@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iNexarum – Modern Web Solutions & Scalable Apps</title>
+
+    <!-- Meta Description (SEO MUST) -->
+    <meta
+      name="description"
+      content="iNexarum builds scalable web applications, AI-driven automation, and modern digital solutions for startups and enterprises."
+    />
+
+    <!-- SEO helpers -->
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#6D28D9" />
+
+    <!-- Favicon (React+Vite logo removed) -->
+    <link rel="icon" type="image/png" href="/Mlogo.png" />
+
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/Main.png"
+      fetchpriority="high"
+    />
+  </head>
+
+  <body>
+    <!-- Premium Preloader -->
+    <div id="preloader" class="preloader">
+      <div class="preloader-content">
+        <div class="spinner"></div>
+      </div>
+    </div>
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+
+  <script
+    src="http://localhost:5174/nexassist.js"
+    data-api-key="na_b15d24249a4693ad36bd1a18fa524ad8"
+    data-api-url="http://localhost:8000/chat"
+    data-css="http://localhost:5174/nexassist.css"
+  ></script>
+</html>
