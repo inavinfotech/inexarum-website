@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Lenis from "lenis";
 import Navbar from "./components/Navbar";
+import ScrollToTop from "./components/ScrollToTop";
 
 const Home = lazy(() => import("./pages/Home"));
 const AllCaseStudies = lazy(() => import("./pages/AllCaseStudies"));
@@ -34,6 +35,7 @@ function App() {
 
   return (
     <div className="min-h-dvh w-full overflow-x-hidden flex flex-col">
+      <ScrollToTop />
       <Navbar />
 
       <main className="flex-1">

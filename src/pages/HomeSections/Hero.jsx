@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import HeroVisual from "../../assets/hero-new.png";
 import { ChevronRight, Sparkles, Globe, Terminal } from "lucide-react";
 
@@ -47,20 +48,21 @@ const Hero = () => {
 
           {/* CTAs */}
           <div className="mt-8 flex flex-col sm:flex-row gap-4 animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
-            <button
-              aria-label="Get started with iNexarum services"
+            <Link
+              to="/contact"
               className="group px-6 py-3.5 rounded-xl bg-[#2a498c] text-white font-bold text-base 
               flex items-center gap-2 hover:bg-[#8c97e7] hover:scale-105 transition-all duration-300 shadow-xl shadow-[#2a498c]/20"
             >
               Get Started Now
               <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button
+            </Link>
+            <Link 
+              to="/case-studies"
               className="px-6 py-3.5 rounded-xl border-2 border-[#2a498c]/10 bg-white text-[#2a498c] font-bold text-base
-              hover:border-[#2a498c]/20 hover:bg-slate-50 transition-all duration-300"
+              hover:border-[#2a498c]/20 hover:bg-slate-50 transition-all duration-300 flex items-center justify-center"
             >
               View Case Studies
-            </button>
+            </Link>
           </div>
         </div>
 

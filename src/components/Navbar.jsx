@@ -1,8 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
 import { logo } from "../assets/assets";
 import { navItems } from "../constants/navItems";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  // Close mobile menu on location change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location]);
+
+  // Prevent scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
 
   return (
     <>
@@ -16,8 +36,8 @@ const Navbar = () => {
       >
         {/* Logo */}
         <div className="flex items-center h-12">
-          <a
-            href="/"
+          <Link
+            to="/"
             aria-label="Go to home"
             className="flex items-center gap-1 group"
           >
@@ -32,7 +52,7 @@ const Navbar = () => {
             <span className="text-2xl md:text-3xl font-black bg-linear-to-r from-[#2a498c] to-[#8c97e7] bg-clip-text text-transparent group-hover:opacity-80 transition-opacity tracking-tight">
               iNexarum
             </span>
-          </a>
+          </Link>
         </div>
 
         {/* Desktop Menu */}
@@ -49,8 +69,8 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <a
-          href="/contact"
+        <Link
+          to="/contact"
           aria-label="Contact us"
           className="hidden md:block px-5 py-2 rounded-md
           bg-linear-to-r from-[#2a498c] to-[#8c97e7]
@@ -58,7 +78,7 @@ const Navbar = () => {
           hover:scale-105 transition-all duration-300 cursor-pointer"
         >
           Contact us
-        </a>
+        </Link>
 
         {/* Hamburger Button */}
         <button
@@ -85,29 +105,51 @@ const Navbar = () => {
       </nav>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden fixed top-16 left-0 w-full bg-white/50 backdrop-blur-md flex flex-col items-center space-y-6 py-6 z-40">
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="text-base hover:text-[#8c97e7] transition"
-              onClick={() => setIsOpen(false)}
-            >
-              {item.label}
-            </a>
-          ))}
-
-          <a
-            href="/contact"
-            aria-label="Contact us"
-            className="border border-[#8c97e7] text-[#8c97e7] px-5 py-1 rounded-md hover:bg-[#8c97e7] hover:text-white transition"
-            onClick={() => setIsOpen(false)}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "100dvh" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="md:hidden fixed top-0 left-0 w-full bg-white z-40 flex flex-col justify-center items-center overflow-hidden"
           >
-            Contact us
-          </a>
-        </div>
-      )}
+            <div className="flex flex-col items-center space-y-8">
+              {navItems.map((item, index) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + index * 0.1 }}
+                >
+                  <a
+                    href={item.href}
+                    className="text-2xl font-bold text-[#1c3a70] hover:text-[#8c97e7] transition"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                </motion.div>
+              ))}
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 + navItems.length * 0.1 }}
+              >
+                <Link
+                  to="/contact"
+                  aria-label="Contact us"
+                  className="mt-4 px-8 py-3 rounded-xl bg-linear-to-r from-[#2a498c] to-[#8c97e7] text-white font-bold text-lg shadow-xl shadow-[#8c97e7]/40"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Contact us
+                </Link>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };

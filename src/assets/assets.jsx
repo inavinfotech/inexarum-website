@@ -7,6 +7,7 @@ import cons from "./clients/cons.png";
 import grEnter from "./clients/grEnter.png";
 import himalayan from "./clients/himalayan.png";
 import dtl from "./clients/dtl.png";
+import tianaLuxora from "./clients/tianaLuxora.png";
 
 import TeamImage from "./TeamImage.png";
 import image1 from "./blogs/image1.jpg";
@@ -42,6 +43,7 @@ export {
   grEnter,
   himalayan,
   dtl,
+  tianaLuxora,
   TeamImage,
   image1,
   image2,

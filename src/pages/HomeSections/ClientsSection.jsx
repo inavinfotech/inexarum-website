@@ -17,8 +17,8 @@ const ClientsSection = () => {
       {/* Auto-Scrolling Logos Ticker */}
       <div className="relative bg-[#F7F7FA] py-10 lg:py-4 w-[98vw] max-w-none md:w-full ml-[calc(-50vw+50%)] md:ml-0 overflow-hidden group">
         {/* Transparent Gradient Overlays for smooth edges */}
-        <div className="absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#F7F7FA] to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#F7F7FA] to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-16 sm:w-32 bg-linear-to-r from-[#F7F7FA] to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-16 sm:w-32 bg-linear-to-l from-[#F7F7FA] to-transparent z-10 pointer-events-none" />
 
         {/* Scrolling Container */}
         <div className="flex w-max shrink-0 animate-[infinite-scroll_25s_linear_infinite]">

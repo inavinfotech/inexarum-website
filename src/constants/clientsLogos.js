@@ -7,6 +7,7 @@ import {
   grEnter,
   himalayan,
   smartShoes,
+  tianaLuxora,
 } from "../assets/assets";
 
 export const CLIENT_LOGOS = [
@@ -15,11 +16,11 @@ export const CLIENT_LOGOS = [
     name: "Smart Shoes",
     src: smartShoes,
   },
-  {
-    id: 2,
-    name: "Aapki Rasoi",
-    src: apkiRasoi,
-  },
+  // {
+  //   id: 2,
+  //   name: "Aapki Rasoi",
+  //   src: apkiRasoi,
+  // },
   {
     id: 3,
     name: "Denta Kris",
@@ -49,5 +50,10 @@ export const CLIENT_LOGOS = [
     id: 8,
     name: "DTL",
     src: dtl,
+  },
+  {
+    id: 9,
+    name: "Tiana Luzora",
+    src: tianaLuxora,
   },
 ];
