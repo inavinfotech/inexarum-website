@@ -1,22 +1,76 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>iNexarum – Modern Web Solutions & Scalable Apps</title>
 
-    <!-- Meta Description (SEO MUST) -->
+    <!-- ═══════════════════════════════════════════════════
+         PRIMARY SEO META TAGS
+         ═══════════════════════════════════════════════════ -->
+    <title>iNexarum – Web Development, AI Solutions & Digital Agency in India</title>
+
     <meta
       name="description"
-      content="iNexarum builds scalable web applications, AI-driven automation, and modern digital solutions for startups and enterprises."
+      content="iNexarum is a leading digital agency in India offering custom web development, mobile app development, AI-driven automation, IoT solutions, and scalable software for startups and enterprises. Get a free consultation today."
     />
 
-    <!-- SEO helpers -->
-    <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#6D28D9" />
+    <meta
+      name="keywords"
+      content="web development company India, mobile app development, AI solutions, custom software development, digital marketing agency, IoT solutions, business automation, scalable web applications, React development, cloud infrastructure, iNexarum, web development Meerut, software company India"
+    />
 
-    <!-- Favicon (React+Vite logo removed) -->
+    <meta name="author" content="iNexarum Private Limited" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+    <meta name="theme-color" content="#2a498c" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://inexarum.in/" />
+
+    <!-- ═══════════════════════════════════════════════════
+         OPEN GRAPH (Facebook, LinkedIn, WhatsApp)
+         ═══════════════════════════════════════════════════ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="iNexarum" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="iNexarum – Web Development, AI Solutions & Digital Agency in India" />
+    <meta
+      property="og:description"
+      content="iNexarum builds scalable web applications, AI-driven automation, and modern digital solutions for startups and enterprises. Custom web & mobile app development in India."
+    />
+    <meta property="og:url" content="https://inexarum.in/" />
+    <meta property="og:image" content="https://inexarum.in/Mlogo.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="iNexarum – Next Generation Digital Agency" />
+
+    <!-- ═══════════════════════════════════════════════════
+         TWITTER CARD
+         ═══════════════════════════════════════════════════ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="iNexarum – Web Development, AI Solutions & Digital Agency" />
+    <meta
+      name="twitter:description"
+      content="Custom web development, mobile apps, AI automation, and scalable digital solutions for startups and enterprises."
+    />
+    <meta name="twitter:image" content="https://inexarum.in/Mlogo.png" />
+    <meta name="twitter:image:alt" content="iNexarum Digital Agency" />
+
+    <!-- ═══════════════════════════════════════════════════
+         FAVICONS & ICONS
+         ═══════════════════════════════════════════════════ -->
     <link rel="icon" type="image/png" href="/Mlogo.png" />
+    <link rel="apple-touch-icon" href="/Mlogo.png" />
+
+    <!-- ═══════════════════════════════════════════════════
+         PERFORMANCE HINTS
+         ═══════════════════════════════════════════════════ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 
     <link
       rel="preload"
@@ -24,6 +78,108 @@
       href="/assets/Main.png"
       fetchpriority="high"
     />
+
+    <!-- ═══════════════════════════════════════════════════
+         JSON-LD STRUCTURED DATA
+         ═══════════════════════════════════════════════════ -->
+
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "iNexarum Private Limited",
+      "alternateName": "iNexarum",
+      "url": "https://inexarum.in",
+      "logo": "https://inexarum.in/Mlogo.png",
+      "description": "iNexarum is a leading digital agency in India specializing in web development, mobile app development, AI solutions, IoT, and business automation.",
+      "foundingDate": "2024",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-9286070075",
+        "contactType": "customer service",
+        "email": "contact@inexarum.in",
+        "areaServed": ["IN", "US", "GB", "AE"],
+        "availableLanguage": ["English", "Hindi"]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Meerut",
+        "addressRegion": "Uttar Pradesh",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://facebook.com/inexarum",
+        "https://twitter.com/inexarum",
+        "https://linkedin.com/company/inexarum",
+        "https://instagram.com/inexarum"
+      ]
+    }
+    </script>
+
+    <!-- WebSite Schema (enables sitelinks search box) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "iNexarum",
+      "url": "https://inexarum.in",
+      "description": "Next generation digital agency offering web development, AI solutions, and scalable software.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "iNexarum Private Limited"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://inexarum.in/blogs?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- LocalBusiness Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "iNexarum Private Limited",
+      "image": "https://inexarum.in/Mlogo.png",
+      "url": "https://inexarum.in",
+      "telephone": "+91-9286070075",
+      "email": "contact@inexarum.in",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Meerut",
+        "addressRegion": "Uttar Pradesh",
+        "addressCountry": "IN"
+      },
+      "priceRange": "$$",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "India"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Digital Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website Development" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Application Development" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile App Development" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Solutions" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "IoT Solutions" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital Marketing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Automation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Software Development" } }
+        ]
+      }
+    }
+    </script>
   </head>
 
   <body>
@@ -37,11 +193,4 @@
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
-
-  <script
-    src="http://localhost:5174/nexassist.js"
-    data-api-key="na_b15d24249a4693ad36bd1a18fa524ad8"
-    data-api-url="http://localhost:8000/chat"
-    data-css="http://localhost:5174/nexassist.css"
-  ></script>
 </html>

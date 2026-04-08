@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import PageHeader from "../components/PageHeader";
 import BlogCard from "../components/cards/BlogCard";
 import { BLOGS } from "../constants/blogs";
+import SEOHead from "../components/SEOHead";
 
 const AllBlogs = () => {
   const navigate = useNavigate();
@@ -13,6 +14,19 @@ const AllBlogs = () => {
 
   return (
     <div className="min-h-dvh bg-[#F7F7FA] py-24">
+      <SEOHead
+        title="Blog"
+        description="Read the latest insights on web development, AI technology, system design, and software engineering from the iNexarum team."
+        path="/blogs"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://inexarum.in/" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://inexarum.in/blogs" }
+          ]
+        }}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <PageHeader
           subtitle="Discover our latest thoughts, ideas, and expertise."

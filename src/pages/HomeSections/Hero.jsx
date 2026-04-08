@@ -70,7 +70,7 @@ const Hero = () => {
         <div className="hidden lg:block flex-1 max-w-xl relative animate-float">
           <img 
             src={HeroVisual} 
-            alt="Futuristic Digital Interface" 
+            alt="iNexarum Digital Agency - Next-Gen Software and AI Interface" 
             className="w-full h-auto drop-shadow-[0_20px_50px_rgba(140,151,231,0.15)] rounded-3xl"
           />
           

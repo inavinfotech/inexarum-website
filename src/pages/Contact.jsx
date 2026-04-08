@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Mail, MapPin, Phone, Globe } from "lucide-react";
 import SupportForm from "../components/SupportForm";
 import PageHeader from "../components/PageHeader";
+import SEOHead from "../components/SEOHead";
 
 const Contact = () => {
   useEffect(() => {
@@ -11,6 +12,20 @@ const Contact = () => {
 
   return (
     <div className="min-h-dvh bg-white text-gray-900 pt-24 pb-20 px-6">
+      <SEOHead
+        title="Contact Us"
+        description="Get in touch with iNexarum for your next web development, AI, or software project. We're here to help you scale your digital presence."
+        keywords="contact iNexarum, hire web developers, AI consultation, software development contact"
+        path="/contact"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://inexarum.in/" },
+            { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://inexarum.in/contact" }
+          ]
+        }}
+      />
       <div className="max-w-7xl mx-auto">
         <PageHeader
           title="Get in Touch"
@@ -39,8 +54,8 @@ const Contact = () => {
               <ContactItem
                 icon={<Mail className="text-blue-500" />}
                 title="Email Us"
-                detail="hello@inexarum.com"
-                link="mailto:hello@inexarum.com"
+                detail="hello@inexarum.in"
+                link="mailto:hello@inexarum.in"
               />
               <ContactItem
                 icon={<Phone className="text-blue-500" />}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ChevronLeft, Loader2 } from "lucide-react";
 import { BLOGS } from "../constants/blogs";
+import SEOHead from "../components/SEOHead";
 
 const BlogDetail = () => {
   const { id } = useParams();
@@ -14,6 +15,28 @@ const BlogDetail = () => {
     setBlog(foundBlog);
     setLoading(false);
   }, [id]);
+
+  const articleStructuredData = blog ? {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": blog.title,
+    "image": [blog.image],
+    "datePublished": "2024-04-08T08:00:00+08:00", // Placeholder, ideally from blog data
+    "author": [{
+      "@type": "Person",
+      "name": "iNexarum Team",
+      "url": "https://inexarum.in"
+    }],
+    "publisher": {
+      "@type": "Organization",
+      "name": "iNexarum",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://inexarum.in/Mlogo.png"
+      }
+    },
+    "description": `Read our latest blog post about ${blog.title}. Discover expert insights from iNexarum.`
+  } : null;
 
   if (loading) {
     return (
@@ -36,6 +59,27 @@ const BlogDetail = () => {
 
   return (
     <div className="min-h-dvh bg-white py-20 px-4 sm:px-8">
+      <SEOHead
+        title={blog.title}
+        description={`Expert insights on ${blog.title}. Learn more from the iNexarum engineering team.`}
+        path={`/blogs/${blog.id}`}
+        ogType="article"
+        image={blog.image}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@graph": [
+            articleStructuredData,
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://inexarum.in/" },
+                { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://inexarum.in/blogs" },
+                { "@type": "ListItem", "position": 3, "name": blog.title, "item": `https://inexarum.in/blogs/${blog.id}` }
+              ]
+            }
+          ]
+        }}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link
           to="/"

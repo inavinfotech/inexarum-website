@@ -86,7 +86,7 @@ const Footer = () => {
                 <div className="p-2 rounded-lg bg-white shadow-md border border-slate-100 group-hover:scale-110 transition-transform">
                   <Mail size={18} className="text-[#8c97e7]" />
                 </div>
-                <span className="font-medium">contact@inexarum.com</span>
+                <span className="font-medium">contact@inexarum.in</span>
               </div>
               <div className="flex items-center gap-3 text-slate-600 group cursor-pointer hover:text-[#2a498c] transition-colors">
                 <div className="p-2 rounded-lg bg-white shadow-md border border-slate-100 group-hover:scale-110 transition-transform">
@@ -147,7 +147,9 @@ const Footer = () => {
                 <a
                   key={social.label}
                   href={social.href}
-                  aria-label={social.label}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Follow iNexarum on ${social.label}`}
                   className="w-10 h-10 rounded-xl bg-white border border-slate-100 shadow-sm flex items-center justify-center 
                   text-slate-400 hover:text-[#2a498c] hover:border-[#2a498c]/20 hover:scale-110 transition-all duration-300"
                 >
@@ -156,9 +158,8 @@ const Footer = () => {
               ))}
             </div>
 
-            {/* Trust Badge Placeholder */}
             <div className="hidden lg:block">
-              <img src={GooglePage} alt="Google Partner" className="h-10 opacity-70 grayscale hover:grayscale-0 transition-all cursor-pointer" />
+              <img src={GooglePage} alt="Google Partner - iNexarum Trusted Agency" className="h-10 opacity-70 grayscale hover:grayscale-0 transition-all cursor-pointer" />
             </div>
           </div>
         </div>
