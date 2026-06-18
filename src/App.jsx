@@ -19,7 +19,7 @@ const PreloaderHandler = () => {
     if (preloader) {
       const timer = setTimeout(() => {
         preloader.classList.add("fade-out");
-      }, 500);
+      }, 1400);
       return () => clearTimeout(timer);
     }
   }, []);

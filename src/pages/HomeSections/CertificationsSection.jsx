@@ -101,7 +101,7 @@ const CertificationsSection = () => {
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.2 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[85vh] overflow-auto border border-slate-200"
+              className="relative bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-modal overflow-auto border border-slate-200"
             >
               {/* Close */}
               <button

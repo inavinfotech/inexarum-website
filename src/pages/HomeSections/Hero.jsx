@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { ChevronRight, ShieldCheck } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { CLIENT_LOGOS } from "../../data/clientsLogos";
 
 const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen w-full flex flex-col justify-between bg-white pt-24 pb-8"
+      className="relative min-h-dvh w-full flex flex-col justify-between bg-white pt-24 pb-8"
     >
       {/* Background grid */}
       <div className="absolute inset-0 pointer-events-none opacity-20" aria-hidden="true">
@@ -15,13 +15,7 @@ const Hero = () => {
 
       {/* Main Content (Centered vertically) */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center max-w-5xl mx-auto px-6 w-full text-center">
-        {/* Simple single badge */}
-        <div className="mb-4 inline-flex justify-center">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-emerald-50 text-[10px] md:text-xs font-semibold text-emerald-800 border border-emerald-100">
-            <ShieldCheck size={12} className="text-emerald-600" />
-            DPIIT Recognized Startup • Government of India
-          </span>
-        </div>
+
 
         {/* Clean, standard heading */}
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 tracking-tight leading-tight max-w-3xl mx-auto">
@@ -55,9 +49,9 @@ const Hero = () => {
         {/* Flat, professional trust stats in a clean horizontal strip */}
         <div className="mt-8 pt-6 border-t border-slate-100 w-full max-w-2xl mx-auto">
           <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-[10px] md:text-xs text-slate-400 font-semibold uppercase tracking-wider">
-            <span>50+ Projects Delivered</span>
+            <span>10+ Projects Delivered</span>
             <span className="hidden sm:inline text-slate-300">•</span>
-            <span>30+ Global Clients</span>
+            <span>7+ Global Clients</span>
             <span className="hidden sm:inline text-slate-300">•</span>
             <span>99% Client Retention</span>
           </div>

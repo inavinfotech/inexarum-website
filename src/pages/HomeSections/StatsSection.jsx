@@ -5,13 +5,13 @@ import { Briefcase, Users, Award, Clock } from "lucide-react";
 const STATS = [
   {
     icon: <Briefcase className="w-5 h-5" />,
-    value: 50,
+    value: 10,
     suffix: "+",
     label: "Projects Delivered",
   },
   {
     icon: <Users className="w-5 h-5" />,
-    value: 30,
+    value: 7,
     suffix: "+",
     label: "Happy Clients",
   },
@@ -23,7 +23,7 @@ const STATS = [
   },
   {
     icon: <Clock className="w-5 h-5" />,
-    value: 4,
+    value: 3,
     suffix: "+",
     label: "Years Experience",
   },
