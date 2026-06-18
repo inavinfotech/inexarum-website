@@ -33,6 +33,10 @@ import cee1 from "./case-studies/cee1.png";
 import cee2 from "./case-studies/cee2.png";
 import dtl1 from "./case-studies/dtl1.png";
 import dtl2 from "./case-studies/dtl2.png";
+import tianaluxora1 from "./case-studies/tiana1.png";
+import tianaluxora2 from "./case-studies/tiana2.png";
+import himalayan1 from "./case-studies/himalayan1.png";
+import himalayan2 from "./case-studies/himalayan2.png";
 
 export {
   logo,
@@ -67,4 +71,8 @@ export {
   cee2,
   dtl1,
   dtl2,
+  tianaluxora1,
+  tianaluxora2,
+  himalayan1,
+  himalayan2,
 };
