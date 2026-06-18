@@ -1,164 +1,76 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
-import ServiceCard from "../../components/cards/ServiceCard";
-import { SERVICES } from "../../constants/services";
+import { SERVICES } from "../../data/services";
 
 const ServiceCarousel = () => {
-  const [activeIndex, setActiveIndex] = useState(1);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-
-  const timerRef = useRef(null);
-
-  // 👉 Swipe refs
-  const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
-
-  /* ======================
-     SLIDE CONTROLS
-  ====================== */
-  const nextSlide = useCallback(() => {
-    setActiveIndex((prev) => (prev + 1) % SERVICES.length);
-  }, []);
-
-  const prevSlide = useCallback(() => {
-    setActiveIndex((prev) => (prev - 1 + SERVICES.length) % SERVICES.length);
-  }, []);
-
-  /* ======================
-     AUTOPLAY
-  ====================== */
-  useEffect(() => {
-    if (isAutoPlaying) {
-      timerRef.current = setInterval(nextSlide, 5000);
-    }
-
-    return () => clearInterval(timerRef.current);
-  }, [isAutoPlaying, nextSlide]);
-
-  const stopAutoPlay = () => {
-    setIsAutoPlaying(false);
-    clearInterval(timerRef.current);
-  };
-
-  /* ======================
-     MANUAL NAV
-  ====================== */
-  const handleManualNavigation = (index) => {
-    setActiveIndex(index);
-    stopAutoPlay();
-  };
-
-  /* ======================
-     SWIPE HANDLER
-  ====================== */
-  const handleSwipe = () => {
-    const diff = touchStartX.current - touchEndX.current;
-
-    if (Math.abs(diff) < 50) return; // swipe threshold
-
-    if (diff > 0) {
-      nextSlide(); // swipe left
-    } else {
-      prevSlide(); // swipe right
-    }
-
-    stopAutoPlay();
-  };
-
   return (
-    <div
+    <section
       id="services"
-      aria-labelledby="services-heading"
-      className="min-h-[60vh] md:min-h-dvh bg-[#F8FAFC] flex flex-col items-center py-10 px-4"
+      className="py-12 bg-slate-50 border-t border-b border-slate-100"
     >
-      <div className="max-w-7xl w-full">
+      <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-5">
-          <h2
-            id="services-heading"
-            className="text-3xl md:text-4xl font-bold text-[#1E293B] mb-4"
-          >
-            Services We Offer
+        <div className="text-center mb-10">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-[#F1F5F9] text-xs font-semibold text-[#1E293B] border border-slate-200 mb-3">
+            Capabilities
+          </span>
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 tracking-tight">
+            Our Core Services & Solutions
           </h2>
+          <p className="text-slate-500 text-sm md:text-base max-w-xl mx-auto mt-2">
+            Engineering robust products, custom software platforms, and automation systems tailored for business acceleration.
+          </p>
         </div>
 
-        {/* Carousel */}
-        <div className="relative w-full py-2 md:py-12 flex flex-col items-center">
-          {/* Cards */}
-          <div
-            className="relative w-full h-100 flex items-center justify-center perspective-distant touch-pan-y"
-            onTouchStart={(e) => (touchStartX.current = e.touches[0].clientX)}
-            onTouchMove={(e) => (touchEndX.current = e.touches[0].clientX)}
-            onTouchEnd={handleSwipe}
-          >
-            {SERVICES.map((service, index) => {
-              let offset = index - activeIndex;
+        {/* Professional Services Grid (Classy Standard) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {SERVICES.map((service) => (
+            <div
+              key={service.id}
+              className="bg-white border border-slate-200 rounded-lg p-6 hover:border-slate-300 hover:shadow-xs transition-all duration-200 flex flex-col justify-between"
+            >
+              <div>
+                {/* Accent Icon Wrapper */}
+                <div className={`w-10 h-10 rounded-md flex items-center justify-center mb-4 bg-linear-to-br ${service.accentColor} text-white shadow-xs`}>
+                  {/* Render service icon with standard styling */}
+                  <div className="w-5 h-5 flex items-center justify-center">
+                    {service.icon}
+                  </div>
+                </div>
 
-              if (offset < -Math.floor(SERVICES.length / 2))
-                offset += SERVICES.length;
-              if (offset > Math.floor(SERVICES.length / 2))
-                offset -= SERVICES.length;
+                <h3 className="text-lg font-bold text-slate-800 mb-2">
+                  {service.title}
+                </h3>
 
-              return (
-                <ServiceCard
-                  key={service.id}
-                  service={service}
-                  offset={offset}
-                  isActive={index === activeIndex}
-                  onClick={() => handleManualNavigation(index)}
-                />
-              );
-            })}
-          </div>
-
-          {/* Controls */}
-          <div className="mt-8 md:mt-16 w-full max-w-xl flex items-center relative px-2">
-            {/* Dots */}
-            <div className="absolute left-1/2 -translate-x-1/2 flex gap-3">
-              {SERVICES.map((_, index) => (
-                <button
-                  key={index}
-                  aria-label={`Go to service slide ${index + 1}`}
-                  onClick={() => handleManualNavigation(index)}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    index === activeIndex
-                      ? "w-8 bg-[#2a498c]"
-                      : "w-2.5 bg-slate-300 hover:bg-slate-400"
-                  }`}
-                />
-              ))}
-            </div>
-
-            {/* Progress */}
-            <div className="  hidden md:flex items-center gap-4 text-slate-400 text-sm ml-140">
-              <span
-                className={activeIndex === 0 ? "text-[#2a498c] font-bold" : ""}
-              >
-                01
-              </span>
-
-              <div className="w-28 h-0.5 bg-slate-200 relative rounded-full">
-                <div
-                  className="absolute left-0 top-0 h-full bg-[#2a498c] transition-all duration-500"
-                  style={{
-                    width: `${((activeIndex + 1) / SERVICES.length) * 100}%`,
-                  }}
-                />
+                <p className="text-slate-500 text-xs md:text-sm leading-relaxed mb-4">
+                  {service.description}
+                </p>
               </div>
 
-              <span
-                className={
-                  activeIndex === SERVICES.length - 1
-                    ? "text-[#2a498c] font-bold"
-                    : ""
-                }
-              >
-                {String(SERVICES.length).padStart(2, "0")}
-              </span>
+              {/* Read More link */}
+              <div className="pt-2 border-t border-slate-50 flex justify-start">
+                <span className="text-xs font-semibold text-[#2a498c] hover:underline cursor-pointer flex items-center gap-1">
+                  Learn more
+                  <svg
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </span>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

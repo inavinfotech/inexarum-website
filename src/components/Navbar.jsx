@@ -1,155 +1,135 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 import { logo } from "../assets/assets";
-import { navItems } from "../constants/navItems";
+import { navItems } from "../data/navItems";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
-  // Close mobile menu on location change
   useEffect(() => {
     setIsOpen(false);
   }, [location]);
 
-  // Prevent scroll when mobile menu is open
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 40);
     };
-  }, [isOpen]);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
-      {/* Navbar */}
       <nav
         role="navigation"
         aria-label="Main navigation"
-        className="flex justify-between items-center px-6 md:px-10 py-2.5
-        bg-white md:bg-white/20 backdrop-blur-md shadow-[0_4px_20px_#0000001A]
-        fixed top-0 left-0 w-full z-50"
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 px-6 md:px-12
+        ${
+          isScrolled
+            ? "bg-white border-b border-slate-200 py-3 shadow-xs"
+            : "bg-white/90 backdrop-blur-md py-4"
+        }`}
       >
-        {/* Logo */}
-        <div className="flex items-center h-12">
+        <div className="max-w-6xl mx-auto flex justify-between items-center">
+          {/* Logo */}
           <Link
             to="/"
             aria-label="Go to home"
-            className="flex items-center gap-1 group"
+            className="flex items-center gap-1.5 group"
           >
             <img
-              // src={"./Mlogo.png"}
               src={logo}
               alt="iNexarum logo"
-              width="auto"
-              height="full"
-              className="cursor-pointer object-contain h-10"
+              className="h-7 w-auto object-contain transition-all duration-300"
             />
-            <span className="text-2xl md:text-3xl font-black bg-linear-to-r from-[#2a498c] to-[#8c97e7] bg-clip-text text-transparent group-hover:opacity-80 transition-opacity tracking-tight">
+            <span className="font-extrabold text-slate-800 text-lg md:text-xl tracking-tight transition-all duration-300">
               iNexarum
             </span>
           </Link>
+
+          {/* Desktop Menu */}
+          <ul className="hidden md:flex space-x-8 text-xs font-semibold uppercase tracking-wider">
+            {navItems.map((item) => (
+              <li key={item.label}>
+                <a
+                  href={item.href}
+                  className="text-slate-500 hover:text-[#2a498c] transition-colors"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <Link
+            to="/contact"
+            aria-label="Contact us"
+            className="hidden md:inline-flex px-4 py-2 rounded bg-[#2a498c] text-white hover:bg-[#1e3362] transition-colors text-xs font-semibold uppercase tracking-wider"
+          >
+            Contact
+          </Link>
+
+          {/* Hamburger Button */}
+          <button
+            aria-label="Toggle navigation menu"
+            className="md:hidden flex flex-col justify-between w-6 h-4 focus:outline-none"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            <span
+              className={`block h-0.5 w-full bg-slate-800 transition-transform duration-200 ${
+                isOpen ? "rotate-45 translate-y-1.5" : ""
+              }`}
+            />
+            <span
+              className={`block h-0.5 w-full bg-slate-800 transition-opacity duration-200 ${
+                isOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`block h-0.5 w-full bg-slate-800 transition-transform duration-200 ${
+                isOpen ? "-rotate-45 -translate-y-1.5" : ""
+              }`}
+            />
+          </button>
         </div>
 
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-8 text-sm">
-          {navItems.map((item) => (
-            <li key={item.label}>
-              <a
-                href={item.href}
-                className="text-black hover:text-[#8c97e7] cursor-pointer transition"
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <Link
-          to="/contact"
-          aria-label="Contact us"
-          className="hidden md:block px-5 py-2 rounded-md
-          bg-linear-to-r from-[#2a498c] to-[#8c97e7]
-          text-white shadow-lg shadow-[#8c97e7]/40
-          hover:scale-105 transition-all duration-300 cursor-pointer"
-        >
-          Contact us
-        </Link>
-
-        {/* Hamburger Button */}
-        <button
-          aria-label="Toggle navigation menu"
-          className="md:hidden flex flex-col justify-between w-7 h-5"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          <span
-            className={`block h-0.5 bg-[#1c3a70] transition-all duration-300 ${
-              isOpen ? "rotate-45 translate-y-2" : ""
-            }`}
-          />
-          <span
-            className={`block h-0.5 bg-[#1c3a70] transition-all duration-300 ${
-              isOpen ? "opacity-0" : ""
-            }`}
-          />
-          <span
-            className={`block h-0.5 bg-[#1c3a70] transition-all duration-300 ${
-              isOpen ? "-rotate-45 -translate-y-2" : ""
-            }`}
-          />
-        </button>
-      </nav>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "100dvh" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="md:hidden fixed top-0 left-0 w-full bg-white z-40 flex flex-col justify-center items-center overflow-hidden"
-          >
-            <div className="flex flex-col items-center space-y-8">
-              {navItems.map((item, index) => (
-                <motion.div
-                  key={item.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 + index * 0.1 }}
-                >
+        {/* Mobile Menu Dropdown with smooth height/opacity transition */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+              className="md:hidden absolute top-full left-0 w-full bg-white border-b border-slate-200 z-40 overflow-hidden shadow-md"
+            >
+              <div className="py-6 px-6 flex flex-col space-y-4">
+                {navItems.map((item) => (
                   <a
+                    key={item.label}
                     href={item.href}
-                    className="text-2xl font-bold text-[#1c3a70] hover:text-[#8c97e7] transition"
+                    className="text-sm font-semibold text-slate-700 hover:text-[#2a498c] transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.label}
                   </a>
-                </motion.div>
-              ))}
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 + navItems.length * 0.1 }}
-              >
+                ))}
                 <Link
                   to="/contact"
-                  aria-label="Contact us"
-                  className="mt-4 px-8 py-3 rounded-xl bg-linear-to-r from-[#2a498c] to-[#8c97e7] text-white font-bold text-lg shadow-xl shadow-[#8c97e7]/40"
+                  className="inline-flex justify-center px-4 py-2 rounded bg-[#2a498c] text-white text-xs font-semibold uppercase tracking-wider text-center"
                   onClick={() => setIsOpen(false)}
                 >
-                  Contact us
+                  Contact
                 </Link>
-              </motion.div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </nav>
     </>
   );
 };

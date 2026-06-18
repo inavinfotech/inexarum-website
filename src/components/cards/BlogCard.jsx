@@ -2,24 +2,27 @@ import { ArrowRight } from "lucide-react";
 
 const BlogCard = ({ blog, onReadMore }) => {
   return (
-    <div className="shrink-0 w-72 md:w-80 group">
-      <div className="relative overflow-hidden rounded-xl bg-gray-100 mb-4 h-48">
+    <div 
+      className="w-full group cursor-pointer transition-all duration-300 hover:-translate-y-1" 
+      onClick={() => onReadMore(blog)}
+    >
+      <div className="relative overflow-hidden rounded-lg bg-slate-100 mb-3 h-48 border border-slate-100 shadow-xs group-hover:shadow-md transition-shadow duration-300">
         <img
           src={blog.image}
           alt={blog.title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          loading="lazy"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
         />
       </div>
 
-      <h3 className="font-semibold text-lg mb-3 line-clamp-2">{blog.title}</h3>
+      <h3 className="font-bold text-slate-800 text-sm md:text-base mb-1.5 group-hover:text-[#2a498c] transition-colors line-clamp-2">
+        {blog.title}
+      </h3>
 
-      <button
-        onClick={() => onReadMore(blog)}
-        className="flex items-center gap-2 text-sm font-bold text-[#2a498c]"
-      >
-        Read More
-        <ArrowRight className="w-4 h-4" />
-      </button>
+      <div className="flex items-center gap-1 text-[11px] font-semibold text-[#2a498c]">
+        <span>Read Article</span>
+        <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform" />
+      </div>
     </div>
   );
 };

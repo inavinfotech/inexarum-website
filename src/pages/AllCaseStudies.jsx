@@ -1,7 +1,7 @@
 import React from "react";
 import PageHeader from "../components/PageHeader";
 import CaseStudyCard from "../components/cards/CaseStudyCard";
-import { CASE_STUDIES } from "../constants/caseStudies";
+import { CASE_STUDIES } from "../data/caseStudies";
 import SEOHead from "../components/SEOHead";
 
 const AllCaseStudies = () => {

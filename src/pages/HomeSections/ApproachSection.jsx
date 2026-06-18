@@ -1,57 +1,50 @@
-import React from "react";
-import { APPROACH_ITEMS } from "../../constants/approach";
-import SectionHeader from "../../components/SectionHeader";
+import { APPROACH_ITEMS } from "../../data/approach";
 
 const ApproachSection = () => {
   return (
-    <section id="approach" className="py-10 px-4 md:px-8 lg:px-16  bg-[#F7F7FA]  max-w-7xl mx-auto">
-      
-      {/* Reusable Section Header */}
-      <SectionHeader
-        subtitle="Our design and"
-        title="development approach"
-      />
+    <section
+      id="approach"
+      className="py-12 px-6 bg-white max-w-6xl mx-auto"
+    >
+      {/* Header */}
+      <div className="text-center mb-8">
+        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-[#F1F5F9] text-xs font-semibold text-[#1E293B] border border-slate-200 mb-3">
+          Methodology
+        </span>
+        <h2 className="text-2xl md:text-3xl font-bold text-slate-800 tracking-tight">
+          Our Development Approach
+        </h2>
+      </div>
 
       {/* Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {APPROACH_ITEMS.map((item) => (
           <div
             key={item.id}
-            className="
-              group
-              bg-white
-              border border-gray-100
-              rounded-lg
-              p-8
-              flex gap-6
-              transition-all duration-300 ease-out
-              hover:-translate-y-1
-              hover:shadow-xl
-            "
+            className="group bg-slate-50 border border-slate-100 rounded-lg p-5 flex gap-4 transition-colors duration-200 hover:border-slate-200"
           >
-            {/* Icon */}
+            {/* Icon (Classy size reduction) */}
             <div
               className={`
-                shrink-0
-                w-14 h-14
-                rounded-xl
-                flex items-center justify-center
-                shadow-lg
-                transition-transform duration-300
-                group-hover:scale-105
-                ${item.iconBgColor}
-              `}
+              shrink-0
+              w-10 h-10
+              rounded-md
+              flex items-center justify-center
+              shadow-xs
+              ${item.iconBgColor}
+            `}
             >
-              {item.icon}
+              <div className="w-5 h-5 text-white flex items-center justify-center">
+                {item.icon}
+              </div>
             </div>
 
             {/* Content */}
-            <div className="space-y-3">
-              <h3 className="text-xl font-bold text-gray-800 leading-tight">
+            <div className="space-y-1.5">
+              <h3 className="text-base font-bold text-slate-800 leading-tight">
                 {item.title}
               </h3>
-
-              <p className="text-gray-500 text-[15px] leading-relaxed">
+              <p className="text-slate-500 text-xs md:text-sm leading-relaxed">
                 {item.description}
               </p>
             </div>

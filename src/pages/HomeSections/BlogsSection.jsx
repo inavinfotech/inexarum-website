@@ -1,11 +1,7 @@
-import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
-import SectionHeader from "../../components/SectionHeader";
-
-import { BLOGS } from "../../constants/blogs";
+import { BLOGS } from "../../data/blogs";
 import BlogCard from "../../components/cards/BlogCard";
-import HireSection from "../../components/HireSection";
 
 const BlogsSection = () => {
   const navigate = useNavigate();
@@ -15,32 +11,41 @@ const BlogsSection = () => {
   };
 
   return (
-    <div id="blogs" className="min-auto bg-white py-10 md:py-16">
-      {/* Reusable Section Header */}
-      <SectionHeader subtitle="Featured" title="Blogs" />
-
-      {/* Blogs Slider */}
-      <div className="flex overflow-x-auto gap-8 px-4 md:px-12 pb-8 snap-x no-scrollbar">
-        {BLOGS.map((blog) => (
-          <div key={blog.id} className="snap-start">
-            <BlogCard blog={blog} onReadMore={handleReadMore} />
+    <section id="blogs" className="py-12 bg-[#FCFDFE] border-t border-slate-100">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+          <div>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-[#F1F5F9] text-xs font-semibold text-[#1E293B] border border-slate-200 mb-3">
+              Publications
+            </span>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-800 tracking-tight">
+              Featured Insights
+            </h2>
           </div>
-        ))}
-      </div>
 
-      {/* Footer Link */}
-      <div className="flex justify-end mt-8 max-w-7xl mx-auto px-4 sm:px-8">
-        <Link
-          to="/blogs"
-          className="flex items-center text-[#8c97e7] font-bold text-lg hover:underline"
-        >
-          Read all blogs <ChevronRight className="ml-2" />
-        </Link>
-      </div>
+          <Link
+            to="/blogs"
+            className="inline-flex items-center text-xs md:text-sm font-semibold text-[#2a498c] hover:underline"
+          >
+            View all articles
+            <ChevronRight size={14} className="ml-0.5" />
+          </Link>
+        </div>
 
-      {/* Hire Section */}
-      {/* <HireSection /> */}
-    </div>
+        {/* 3-Column Standard Grid (Classy Standard UI) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {BLOGS.slice(0, 3).map((blog) => (
+            <div key={blog.id} className="w-full flex justify-center">
+              {/* Force card to fill container width on grid */}
+              <div className="w-full select-none">
+                <BlogCard blog={blog} onReadMore={handleReadMore} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 

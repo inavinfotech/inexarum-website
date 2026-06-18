@@ -1,15 +1,5 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  Send,
-  User,
-  Mail,
-  Phone,
-  FileText,
-  MessageSquare,
-  CheckCircle,
-  AlertCircle,
-} from "lucide-react";
+import { useState } from "react";
+import { Send, User, Mail, Phone, FileText, MessageSquare } from "lucide-react";
 import { submitSupportQuery } from "../database/queries";
 
 const SupportForm = () => {
@@ -56,30 +46,27 @@ const SupportForm = () => {
   };
 
   const inputClasses =
-    "w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all duration-300";
+    "w-full bg-white border border-slate-200 rounded px-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-[#2a498c] focus:ring-1 focus:ring-[#2a498c] transition-colors";
   const labelClasses =
-    "flex items-center gap-2 text-sm font-medium text-gray-600 mb-2 ml-1";
+    "flex items-center gap-1.5 text-xs font-semibold text-slate-600 mb-1.5";
 
   return (
-    <div className="relative w-full max-w-2xl lg:max-w-6xl mx-auto group">
-      {/* Background Glow */}
-      <div className="absolute -inset-1 bg-linear-to-r from-blue-600 to-cyan-500 rounded-2xl blur opacity-10 group-hover:opacity-20 transition duration-1000 group-hover:duration-200"></div>
-
-      <div className="relative bg-white border border-gray-100 rounded-2xl p-8 md:p-10 shadow-xl">
-        <h3 className="text-xl md:text-3xl font-bold text-gray-900 mb-2">
+    <div className="relative w-full max-w-4xl mx-auto">
+      <div className="relative bg-white border border-slate-200 rounded-lg p-6 md:p-8 shadow-xs">
+        <h3 className="text-lg md:text-xl font-bold text-slate-800 mb-1">
           Send us a message
         </h3>
-        <p className="text-gray-600 mb-8">
+        <p className="text-slate-500 text-xs md:text-sm mb-6">
           We'll get back to you within 24 hours.
         </p>
 
         <form
           onSubmit={handleSubmit}
-          className="grid grid-cols-1 lg:grid-cols-4 gap-4 md:gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 gap-4"
         >
-          <div className="lg:col-span-1 lg:row-start-1">
+          <div>
             <label className={labelClasses}>
-              <User size={16} /> Name
+              <User size={14} className="text-slate-400" /> Name
             </label>
             <input
               type="text"
@@ -91,9 +78,9 @@ const SupportForm = () => {
               className={inputClasses}
             />
           </div>
-          <div className="lg:col-span-1 lg:row-start-1">
+          <div>
             <label className={labelClasses}>
-              <Mail size={16} /> Email
+              <Mail size={14} className="text-slate-400" /> Email
             </label>
             <input
               type="email"
@@ -106,23 +93,23 @@ const SupportForm = () => {
             />
           </div>
 
-          <div className="lg:col-span-1 lg:col-start-1 lg:row-start-2">
+          <div>
             <label className={labelClasses}>
-              <Phone size={16} /> Phone
+              <Phone size={14} className="text-slate-400" /> Phone
             </label>
             <input
               type="tel"
               name="contact_number"
               value={formData.contact_number}
               onChange={handleChange}
-              placeholder="+1 234 567 890"
+              placeholder="+1 (234) 567-890"
               required
               className={inputClasses}
             />
           </div>
-          <div className="lg:col-span-1 lg:col-start-2 lg:row-start-2">
+          <div>
             <label className={labelClasses}>
-              <FileText size={16} /> Subject
+              <FileText size={14} className="text-slate-400" /> Subject
             </label>
             <input
               type="text"
@@ -135,9 +122,9 @@ const SupportForm = () => {
             />
           </div>
 
-          <div className="lg:col-span-2 lg:row-span-2 lg:col-start-3 lg:row-start-1 flex flex-col">
+          <div className="md:col-span-2 flex flex-col">
             <label className={labelClasses}>
-              <MessageSquare size={16} /> Message
+              <MessageSquare size={14} className="text-slate-400" /> Message
             </label>
             <textarea
               name="message"
@@ -145,63 +132,32 @@ const SupportForm = () => {
               onChange={handleChange}
               placeholder="Tell us about your project..."
               required
-              className={`${inputClasses} flex-1 resize-none`}
+              className={`${inputClasses} h-28 resize-none`}
             ></textarea>
           </div>
 
-          <div className="lg:col-span-4 pt-4">
+          <div className="md:col-span-2 pt-2">
             <button
               type="submit"
               disabled={status === "loading"}
-              className="group w-full relative inline-flex items-center justify-center px-8 py-4 font-bold text-white transition-all duration-200 bg-blue-600 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-700 overflow-hidden"
+              className="w-full inline-flex items-center justify-center gap-1.5 px-6 py-2.5 font-semibold text-white bg-[#2a498c] hover:bg-[#1e3362] rounded text-sm disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
-              <span className="relative flex items-center gap-2">
-                {status === "loading" ? (
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{
-                      repeat: Infinity,
-                      duration: 1,
-                      ease: "linear",
-                    }}
-                  >
-                    <Send size={18} />
-                  </motion.div>
-                ) : (
-                  <Send size={18} />
-                )}
-                {status === "loading" ? "Sending..." : "Send Message"}
-              </span>
+              <Send size={15} />
+              {status === "loading" ? "Sending..." : "Send Message"}
             </button>
           </div>
 
-          <div className="lg:col-span-4">
-            <AnimatePresence>
-              {status === "success" && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  className="mt-6 p-4 bg-emerald-50 border border-emerald-200 rounded-xl flex items-center gap-3 text-emerald-700"
-                >
-                  <CheckCircle size={20} />
-                  <p>Thank you! Your message has been sent successfully.</p>
-                </motion.div>
-              )}
+          {status === "success" && (
+            <div className="md:col-span-2 mt-4 p-3 bg-emerald-50 border border-emerald-100 rounded text-xs text-emerald-800">
+              Thank you! Your message has been sent successfully.
+            </div>
+          )}
 
-              {status === "error" && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  className="mt-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-center gap-3 text-red-700"
-                >
-                  <AlertCircle size={20} />
-                  <p>{errorMessage}</p>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+          {status === "error" && (
+            <div className="md:col-span-2 mt-4 p-3 bg-red-50 border border-red-100 rounded text-xs text-red-800">
+              {errorMessage}
+            </div>
+          )}
         </form>
       </div>
     </div>

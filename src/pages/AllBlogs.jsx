@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import PageHeader from "../components/PageHeader";
 import BlogCard from "../components/cards/BlogCard";
-import { BLOGS } from "../constants/blogs";
+import { BLOGS } from "../data/blogs";
 import SEOHead from "../components/SEOHead";
 
 const AllBlogs = () => {

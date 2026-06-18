@@ -1,4 +1,4 @@
-// src/constants/navItems.js
+// src/data/navItems.js
 
 export const navItems = [
   { label: "About us", href: "/#about" },

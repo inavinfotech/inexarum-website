@@ -1,82 +1,63 @@
-import React from "react";
-import { FEATURES } from "../../constants/features";
-import SectionHeader from "../../components/SectionHeader";
-/* Decorative Dot */
-const DecorativeDot = ({ position, color }) => {
-  const positionMap = {
-    "top-left": "-top-6 -left-6",
-    "top-right": "-top-6 -right-6",
-    "bottom-left": "-bottom-6 -left-6",
-    "bottom-right": "-bottom-6 -right-6",
-    "bottom-center": "-bottom-4 left-1/2 -translate-x-1/2",
-    "top-center": "-top-4 left-1/2 -translate-x-1/2",
-  };
+import { FEATURES } from "../../data/features";
 
-  const colorMap = {
-    orange: "bg-gradient-to-br from-orange-400 to-orange-500",
-    pink: "bg-gradient-to-br from-[#2a498c] to-[#8c97e7]",
-  };
-
-  return (
-    <div
-      className={`absolute w-12 h-12 rounded-full opacity-80 ${positionMap[position]} ${colorMap[color]}`}
-    />
-  );
-};
-
-/* Main Component */
 const LandingSection = () => {
   return (
-    <div className="min-h-dvh py-10 md:py-20">
-      {/* Reusable Section Header */}
-      <SectionHeader subtitle="Way of building" title="Great Software" />
+    <section className="py-12 bg-white border-t border-slate-100">
+      {/* Header */}
+      <div className="text-center mb-10">
+        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-[#F1F5F9] text-xs font-semibold text-[#1E293B] border border-slate-200 mb-3">
+          Our Principles
+        </span>
+        <h2 className="text-2xl md:text-3xl font-bold text-slate-800 tracking-tight">
+          How We Build Quality Software
+        </h2>
+      </div>
 
-      <main className="max-w-7xl mx-auto px-6 lg:px-24 space-y-16 md:space-y-32">
+      <main className="max-w-6xl mx-auto px-6 space-y-12">
         {FEATURES.map((item, index) => (
-          <section
+          <div
             key={index}
             className={`flex flex-col ${
               item.reverse ? "lg:flex-row-reverse" : "lg:flex-row"
-            } gap-12 lg:gap-24 items-center`}
+            } gap-8 lg:gap-16 items-center`}
           >
-            {/* Text */}
-            <div className="flex-1 space-y-6">
-              <h3 className="text-3xl font-bold text-gray-900">{item.title}</h3>
+            {/* Text column */}
+            <div className="flex-1 space-y-4">
+              <h3 className="text-xl md:text-2xl font-bold text-slate-800 tracking-tight">
+                {item.title}
+              </h3>
 
               {item.paragraphs.map((p, i) => (
-                <p key={i} className="text-gray-600 leading-relaxed">
+                <p key={i} className="text-slate-500 text-xs md:text-sm leading-relaxed">
                   {p}
                 </p>
               ))}
 
-              <div className="border-l-2 border-[#8c97e7] pl-6">
-                <blockquote className="italic text-[#8c97e7]">
+              <div className="border-l-2 border-slate-300 pl-4 py-1">
+                <blockquote className="italic text-slate-500 text-xs md:text-sm">
                   "{item.quote}"
                 </blockquote>
-                <cite className="block text-sm text-gray-500 mt-2">
+                <cite className="block text-xs font-semibold text-slate-400 mt-1">
                   — {item.attribution}
                 </cite>
               </div>
             </div>
 
-            {/* Image */}
-            <div className="flex-1 relative">
-              {item.dots.map((dot, i) => (
-                <DecorativeDot key={i} {...dot} />
-              ))}
-
-              <div className="relative z-10 rounded-2xl overflow-hidden shadow-xl">
+            {/* Image column (Simple, tight preview without decorative dots) */}
+            <div className="flex-1 w-full max-w-md lg:max-w-none">
+              <div className="rounded-lg overflow-hidden border border-slate-100 shadow-xs bg-slate-50">
                 <img
                   src={item.imageSrc}
                   alt={item.title}
+                  loading="lazy"
                   className="w-full h-auto object-cover"
                 />
               </div>
             </div>
-          </section>
+          </div>
         ))}
       </main>
-    </div>
+    </section>
   );
 };
 

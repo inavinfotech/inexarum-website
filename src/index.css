@@ -137,3 +137,13 @@
 .animate-scaleReveal {
   animation: scaleReveal 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
+
+/* Blinking Cursor for Typing Animation */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 0.8s infinite;
+}

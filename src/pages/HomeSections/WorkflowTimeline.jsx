@@ -1,57 +1,49 @@
-import SectionHeader from "../../components/SectionHeader";
-import StepCard from "../../components/cards/StepCard";
-import { WORKFLOW_STEPS } from "../../constants/workflowSteps";
+import { WORKFLOW_STEPS } from "../../data/workflowSteps";
 
 const WorkflowTimeline = () => {
-  const columns = [
-    WORKFLOW_STEPS.slice(0, 2),
-    WORKFLOW_STEPS.slice(2, 4),
-    WORKFLOW_STEPS.slice(4, 6),
-  ];
-
   return (
     <section
       id="how-it-works"
-      className="py-10 md:py-24 px-4 bg-gray-50 overflow-hidden"
+      className="py-12 px-6 bg-slate-50 border-t border-b border-slate-100"
     >
-      <SectionHeader
-        subtitle="How development"
-        title="through Alcaline works"
-      />
-
-      <div className="relative max-w-6xl mx-auto">
-        {/* ================= DESKTOP ================= */}
-        <div className="hidden md:block relative">
-          {/* Central line */}
-          <div className="absolute top-1/2 left-0 w-full h-0.5 bg-linear-to-r from-[#2a498c] to-[#8c97e7] -translate-y-1/2" />
-
-          {/* Trophy */}
-          <div className="absolute top-1/2 -right-10 -translate-y-1/2 text-3xl">
-            🏆
-          </div>
-
-          <div className="grid grid-cols-3 gap-x-12">
-            {columns.map((col, colIndex) => (
-              <div key={colIndex} className="flex flex-col items-center">
-                <StepCard step={col[0]} isTop />
-                <div className="h-32" />
-                <div className="translate-x-10">
-                  <StepCard step={col[1]} isTop={false} />
-                </div>
-              </div>
-            ))}
-          </div>
+      <div className="max-w-4xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-10">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-[#F1F5F9] text-xs font-semibold text-[#1E293B] border border-slate-200 mb-3">
+            Process
+          </span>
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 tracking-tight">
+            How We Partner With You
+          </h2>
+          <p className="text-slate-500 text-sm md:text-base mt-2">
+            A structured, transparent engineering process designed to deliver quality software on time.
+          </p>
         </div>
 
-        {/* ================= MOBILE ================= */}
-        <div className="md:hidden flex flex-col gap-12 border-l-2 border-gray-50 pl-6 ml-4">
+        {/* Clean, Standard Timeline List */}
+        <div className="relative border-l border-slate-200 ml-4 md:ml-6 space-y-8">
           {WORKFLOW_STEPS.map((step) => (
-            <div key={step.id} className="relative">
-              <div className="absolute -left-8 top-1/2 w-4 h-0.5 bg-gray-50" />
-              <StepCard step={step} isTop />
+            <div key={step.id} className="relative pl-8 md:pl-10 group">
+              {/* Dot indicator */}
+              <div className="absolute -left-1.5 top-1.5 w-3.5 h-3.5 rounded-full border-2 border-white bg-[#2a498c] shadow-xs" />
+
+              {/* Step number and Title */}
+              <div className="flex flex-col md:flex-row md:items-center gap-1.5 mb-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#2a498c]">
+                  Phase 0{step.id}
+                </span>
+                <span className="hidden md:inline text-slate-300">|</span>
+                <h3 className="text-base font-bold text-slate-800 tracking-tight">
+                  {step.title}
+                </h3>
+              </div>
+
+              {/* Description */}
+              <p className="text-slate-500 text-xs md:text-sm leading-relaxed max-w-2xl">
+                {step.description}
+              </p>
             </div>
           ))}
-          <div className="text-3xl  ml-39 mt-2.5">🏆</div>
         </div>
       </div>
     </section>

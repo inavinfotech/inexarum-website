@@ -1,7 +1,6 @@
 import { useState, useMemo } from "react";
 import LogoCard from "../../components/cards/LogoCard";
-import { TECH_DATA } from "../../constants/techData";
-import SectionHeader from "../../components/SectionHeader";
+import { TECH_DATA } from "../../data/techData";
 
 const CATEGORIES = [
   { key: "BACKEND", label: "Backend" },
@@ -20,38 +19,50 @@ const TechStackPage = () => {
   }, [activeTab]);
 
   return (
-    <section className="min-h-dvh py-20 px-4 max-w-7xl mx-auto">
+    <section className="py-12 px-6 max-w-6xl mx-auto border-t border-slate-100 bg-[#FCFDFE]">
       {/* Header */}
-      <SectionHeader subtitle="Our" title="Tech Stack" />
+      <div className="text-center mb-8">
+        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-[#F1F5F9] text-xs font-semibold text-[#1E293B] border border-slate-200 mb-3">
+          Technologies
+        </span>
+        <h2 className="text-2xl md:text-3xl font-bold text-slate-800 tracking-tight">
+          Our Technology Stack
+        </h2>
+      </div>
 
-      {/* Tabs */}
-      <div className="flex flex-wrap justify-center gap-10 mb-16">
+      {/* Tabs (Tighter, neat gap) */}
+      <div className="flex flex-wrap justify-center gap-6 md:gap-8 mb-8 border-b border-slate-150 pb-3">
         {CATEGORIES.map(({ key, label }) => (
           <button
             key={key}
             onClick={() => setActiveTab(key)}
             aria-pressed={activeTab === key}
-            className={`relative text-sm font-medium transition-all duration-300
-              ${
-                activeTab === key
-                  ? "text-transparent bg-clip-text bg-linear-to-r from-[#2a498c] to-[#8c97e7]"
-                  : "text-gray-500 hover:text-gray-800"
-              }`}
+            className={`text-xs md:text-sm font-semibold transition-colors duration-200 pb-1 relative
+            ${
+              activeTab === key
+                ? "text-[#2a498c]"
+                : "text-slate-400 hover:text-slate-600"
+            }`}
           >
             {label}
 
             {activeTab === key && (
-              <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-[#8c97e7] rounded-full" />
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#2a498c] rounded-full" />
             )}
           </button>
         ))}
       </div>
 
-      {/* Logos Grid */}
+      {/* Logos Grid (Compact grid layout with standard card wrappers) */}
       <div className="flex justify-center">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-16 gap-y-14 place-items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 w-full">
           {filteredTech.map((tech) => (
-            <LogoCard key={tech.id} tech={tech} />
+            <div
+              key={tech.id}
+              className="flex flex-col items-center justify-center p-4 bg-white border border-slate-200 rounded-lg shadow-xs hover:border-slate-300 transition-colors"
+            >
+              <LogoCard tech={tech} />
+            </div>
           ))}
         </div>
       </div>

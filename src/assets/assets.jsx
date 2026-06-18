@@ -20,6 +20,7 @@ import img2 from "./building/img2.jpg";
 import img3 from "./building/img3.jpg";
 
 import GooglePage from "./GooglePage.png";
+import dpiitCert from "./certifications/dpiit.jpg";
 import Java from "./TechData/Java.png";
 import mongoDB from "./TechData/mongoDB.png";
 import Mysql from "./TechData/Mysql.png";
@@ -54,6 +55,7 @@ export {
   img2,
   img3,
   GooglePage,
+  dpiitCert,
   Java,
   mongoDB,
   Mysql,

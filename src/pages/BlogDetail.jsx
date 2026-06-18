@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ChevronLeft, Loader2 } from "lucide-react";
-import { BLOGS } from "../constants/blogs";
+import { BLOGS } from "../data/blogs";
 import SEOHead from "../components/SEOHead";
 
 const BlogDetail = () => {
