@@ -73,11 +73,11 @@ const Footer = () => {
             <span>•</span>
             <a href="/#services" className="hover:text-[#2a498c]">Services</a>
             <span>•</span>
-            <a href="/case-studies" className="hover:text-[#2a498c]">Case Studies</a>
+            <Link to="/case-studies" className="hover:text-[#2a498c]">Case Studies</Link>
             <span>•</span>
-            <a href="/privacy" className="hover:text-[#2a498c]">Privacy</a>
+            <Link to="/privacy" className="hover:text-[#2a498c]">Privacy</Link>
             <span>•</span>
-            <a href="/terms" className="hover:text-[#2a498c]">Terms</a>
+            <Link to="/terms" className="hover:text-[#2a498c]">Terms</Link>
           </div>
         </div>
       </div>

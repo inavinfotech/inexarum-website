@@ -11,6 +11,8 @@ const AllCaseStudies = lazy(() => import("./pages/AllCaseStudies"));
 const AllBlogs = lazy(() => import("./pages/AllBlogs"));
 const BlogDetail = lazy(() => import("./pages/BlogDetail"));
 const Contact = lazy(() => import("./pages/Contact"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
 const Footer = lazy(() => import("./components/Footer"));
 
 const PreloaderHandler = () => {
@@ -53,7 +55,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-dvh w-full overflow-x-hidden flex flex-col bg-white">
+    <div className="min-h-dvh w-full overflow-x-clip flex flex-col bg-white">
       <ScrollToTop />
       <Navbar />
 
@@ -67,6 +69,8 @@ function App() {
               <Route path="/blogs" element={<PageWrapper><AllBlogs /></PageWrapper>} />
               <Route path="/blogs/:id" element={<PageWrapper><BlogDetail /></PageWrapper>} />
               <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
+              <Route path="/privacy" element={<PageWrapper><Privacy /></PageWrapper>} />
+              <Route path="/terms" element={<PageWrapper><Terms /></PageWrapper>} />
             </Routes>
           </AnimatePresence>
         </Suspense>

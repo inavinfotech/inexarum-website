@@ -90,3 +90,35 @@
   max-height: 85dvh;
 }
 
+/* Custom scrollbar for TOC, showing only on hover/active */
+.toc-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.toc-scrollbar::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  display: none;
+}
+
+.toc-scrollbar:hover::-webkit-scrollbar,
+.toc-scrollbar:focus-within::-webkit-scrollbar,
+.toc-scrollbar:active::-webkit-scrollbar {
+  display: block;
+}
+
+.toc-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.toc-scrollbar::-webkit-scrollbar-thumb {
+  background: #2a498c;
+  border-radius: 10px;
+}
+
+.toc-scrollbar:hover {
+  scrollbar-width: thin;
+}
+
+
