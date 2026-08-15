@@ -1,28 +1,75 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ShieldCheck, Award, BadgeCheck } from "lucide-react";
-import { dpiitCert, GooglePage } from "../../assets/assets";
+import { X, ShieldCheck, Award, CheckCircle2 } from "lucide-react";
+import {
+  dpiitCert,
+  ceeCert,
+  dentakrisCert,
+  dewanTyresCert1,
+  dewanTyresCert2,
+  econsCert,
+} from "../../assets/assets";
 
 const CERTIFICATIONS = [
   {
     id: "dpiit",
     title: "DPIIT Recognized Startup",
-    subtitle: "Department for Promotion of Industry & Internal Trade",
+    subtitle: "Govt. of India Startup India Program",
     description:
-      "iNexarum is officially recognized as a startup by DPIIT, Government of India — validating our innovation, scalability, and commitment to building impactful technology solutions.",
+      "iNexarum is officially recognized as a startup by DPIIT, Government of India — validating our innovation, scalability, and technical leadership.",
     image: dpiitCert,
     icon: <ShieldCheck className="w-4 h-4" />,
     badgeColor: "bg-emerald-50 text-emerald-800 border-emerald-200",
   },
   {
-    id: "google",
-    title: "Google Verified Business",
-    subtitle: "Google Business Profile",
+    id: "cee",
+    title: "Education Excellence Award",
+    subtitle: "Confederation of Education Excellence (CEE)",
     description:
-      "iNexarum is verified on Google, ensuring trust and authenticity for clients worldwide.",
-    image: GooglePage,
-    icon: <BadgeCheck className="w-4 h-4" />,
-    badgeColor: "bg-blue-50 text-blue-800 border-blue-200",
+      "Honored by CEE for delivering innovative EdTech solutions, workforce learning systems, and enterprise educational technology platforms.",
+    image: ceeCert,
+    icon: <Award className="w-4 h-4" />,
+    badgeColor: "bg-amber-50 text-amber-800 border-amber-200",
+  },
+  {
+    id: "dentakris",
+    title: "Healthcare Solutions",
+    subtitle: "Dentakris Certificate of Excellence",
+    description:
+      "Recognized for custom healthcare software engineering, HIPAA-compliant patient management tools, and digital system integration.",
+    image: dentakrisCert,
+    icon: <CheckCircle2 className="w-4 h-4" />,
+    badgeColor: "bg-purple-50 text-purple-800 border-purple-200",
+  },
+  {
+    id: "dewan-tyres-1",
+    title: "Industrial Transformation",
+    subtitle: "Dewan Tyres Corporate Certificate",
+    description:
+      "Awarded for designing and engineering high-impact digital platforms, brand identity, and e-commerce readiness for Dewan Tyres Pvt. Ltd.",
+    image: dewanTyresCert1,
+    icon: <Award className="w-4 h-4" />,
+    badgeColor: "bg-indigo-50 text-indigo-800 border-indigo-200",
+  },
+  {
+    id: "dewan-tyres-2",
+    title: "Digital Platform Excellence",
+    subtitle: "Dewan Tyres Engineering Milestone",
+    description:
+      "Recognized for delivering resilient web platform architecture, customer engagement portals, and digital workflow automation.",
+    image: dewanTyresCert2,
+    icon: <CheckCircle2 className="w-4 h-4" />,
+    badgeColor: "bg-slate-100 text-slate-800 border-slate-200",
+  },
+  {
+    id: "econs-solution",
+    title: "Engineering Consultancy",
+    subtitle: "Econs Solution Certificate",
+    description:
+      "Official certificate from Econs Solution for enterprise cloud architecture, IT infrastructure, and custom software delivery.",
+    image: econsCert,
+    icon: <ShieldCheck className="w-4 h-4" />,
+    badgeColor: "bg-teal-50 text-teal-800 border-teal-200",
   },
 ];
 
@@ -35,29 +82,19 @@ const CertificationsSection = () => {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-[#F1F5F9] text-xs font-semibold text-[#1E293B] border border-slate-200 mb-3">
-              <Award size={13} className="text-[#2a498c]" />
-              Trust & Recognitions
-            </span>
             <h2 className="text-2xl md:text-3xl font-bold text-slate-800 tracking-tight">
               Trusted by Government & Industry
             </h2>
           </div>
 
           {/* Certification Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {CERTIFICATIONS.map((cert) => (
               <div
                 key={cert.id}
                 onClick={() => setSelectedCert(cert)}
                 className="group relative bg-white border border-slate-200 rounded-lg p-5 cursor-pointer transition-all duration-200 hover:border-slate-300 hover:shadow-xs"
               >
-                {/* Header Badge */}
-                <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded border ${cert.badgeColor} text-xs font-semibold mb-4`}>
-                  {cert.icon}
-                  {cert.title}
-                </div>
-
                 {/* Image Preview (Classy layout) */}
                 <div className="relative rounded border border-slate-100 overflow-hidden mb-4 bg-slate-50 p-2 flex justify-center items-center h-40">
                   <img
@@ -74,8 +111,11 @@ const CertificationsSection = () => {
 
                 {/* Info */}
                 <h3 className="text-base font-bold text-slate-800 mb-1">
-                  {cert.subtitle}
+                  {cert.title}
                 </h3>
+                <p className="text-xs font-medium text-slate-400 mb-2">
+                  {cert.subtitle}
+                </p>
                 <p className="text-xs text-slate-500 leading-relaxed">
                   {cert.description}
                 </p>
@@ -114,13 +154,12 @@ const CertificationsSection = () => {
 
               {/* Header */}
               <div className="p-5 border-b border-slate-100">
-                <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded border ${selectedCert.badgeColor} text-xs font-semibold mb-2`}>
-                  {selectedCert.icon}
-                  {selectedCert.title}
-                </div>
                 <h3 className="text-lg font-bold text-slate-800">
-                  {selectedCert.subtitle}
+                  {selectedCert.title}
                 </h3>
+                <p className="text-xs font-medium text-slate-400 mt-0.5">
+                  {selectedCert.subtitle}
+                </p>
               </div>
 
               {/* Certificate Image */}

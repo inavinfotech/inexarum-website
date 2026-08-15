@@ -21,9 +21,6 @@ const TestimonialSection = () => {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-[#F1F5F9] text-xs font-semibold text-[#1E293B] border border-slate-200 mb-3">
-            Testimonials
-          </span>
           <h2 className="text-2xl md:text-3xl font-bold text-slate-800 tracking-tight">
             Client Success Stories
           </h2>

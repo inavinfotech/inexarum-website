@@ -19,8 +19,12 @@ import img1 from "./building/img1.webp";
 import img2 from "./building/img2.webp";
 import img3 from "./building/img3.webp";
 
-import GooglePage from "./GooglePage.webp";
 import dpiitCert from "./certifications/dpiit.webp";
+import ceeCert from "./certifications/confederation-of-education-excellence.webp";
+import dentakrisCert from "./certifications/dentakris.webp";
+import dewanTyresCert1 from "./certifications/dewan-tyres.webp";
+import dewanTyresCert2 from "./certifications/dewan-tyres-2.webp";
+import econsCert from "./certifications/econs-solution.webp";
 import Java from "./TechData/Java.webp";
 import mongoDB from "./TechData/mongoDB.webp";
 import Mysql from "./TechData/Mysql.webp";
@@ -58,8 +62,12 @@ export {
   img1,
   img2,
   img3,
-  GooglePage,
   dpiitCert,
+  ceeCert,
+  dentakrisCert,
+  dewanTyresCert1,
+  dewanTyresCert2,
+  econsCert,
   Java,
   mongoDB,
   Mysql,

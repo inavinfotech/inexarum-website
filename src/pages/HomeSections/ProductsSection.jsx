@@ -8,10 +8,6 @@ const ProductsSection = () => {
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-[#F1F5F9] text-xs font-semibold text-[#1E293B] border border-slate-200 mb-3">
-            <Sparkles size={13} className="text-[#2a498c]" />
-            Product Ecosystem
-          </span>
           <h2 className="text-2xl md:text-3xl font-bold text-slate-800 tracking-tight">
             Purpose-Built Digital Products & Platforms
           </h2>
@@ -57,11 +53,6 @@ const ProductsSection = () => {
                         </p>
                       </div>
                     </div>
-                    <span
-                      className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border shrink-0 ${product.badgeColor}`}
-                    >
-                      {product.badge}
-                    </span>
                   </div>
 
                   {/* Description */}

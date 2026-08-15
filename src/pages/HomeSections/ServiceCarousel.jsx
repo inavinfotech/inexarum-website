@@ -9,9 +9,6 @@ const ServiceCarousel = () => {
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-10">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-[#F1F5F9] text-xs font-semibold text-[#1E293B] border border-slate-200 mb-3">
-            Capabilities
-          </span>
           <h2 className="text-2xl md:text-3xl font-bold text-slate-800 tracking-tight">
             Our Core Services & Solutions
           </h2>
