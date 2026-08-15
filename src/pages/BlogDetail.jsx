@@ -32,7 +32,7 @@ const BlogDetail = () => {
       "name": "iNexarum",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://inexarum.in/Mlogo.png"
+        "url": "https://inexarum.in/Mlogo.webp"
       }
     },
     "description": `Read our latest blog post about ${blog.title}. Discover expert insights from iNexarum.`

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="verdure-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+    <filter id="verdure-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#064e3b" flood-opacity="0.3" />
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="120" fill="url(#verdure-bg)" />
+  <g filter="url(#verdure-shadow)" transform="translate(106, 106)">
+    <path d="M 150 30 C 70 30 30 110 30 210 C 30 270 70 300 150 300 C 230 300 270 240 270 140 C 270 80 230 30 150 30 Z" fill="#ffffff" opacity="0.95" />
+    <path d="M 150 30 C 150 120 120 210 30 210" fill="none" stroke="#059669" stroke-width="12" stroke-linecap="round" />
+    <circle cx="150" cy="110" r="16" fill="#10b981" />
+    <circle cx="100" cy="170" r="14" fill="#34d399" />
+    <circle cx="180" cy="210" r="12" fill="#6ee7b7" />
+    <line x1="150" y1="110" x2="100" y2="170" stroke="#059669" stroke-width="6" />
+    <line x1="100" y1="170" x2="180" y2="210" stroke="#059669" stroke-width="6" />
+  </g>
+</svg>

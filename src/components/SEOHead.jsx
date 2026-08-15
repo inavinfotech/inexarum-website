@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 const SITE_URL = "https://inexarum.in";
-const DEFAULT_IMAGE = `${SITE_URL}/Mlogo.png`;
+const DEFAULT_IMAGE = `${SITE_URL}/Mlogo.webp`;
 const SITE_NAME = "iNexarum";
 
 /**

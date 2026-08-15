@@ -71,6 +71,8 @@ const Footer = () => {
           <div className="flex gap-3 text-[11px] text-slate-500 font-medium justify-center flex-wrap">
             <a href="/#about" className="hover:text-[#2a498c]">About</a>
             <span>•</span>
+            <a href="/#products" className="hover:text-[#2a498c]">Products</a>
+            <span>•</span>
             <a href="/#services" className="hover:text-[#2a498c]">Services</a>
             <span>•</span>
             <Link to="/case-studies" className="hover:text-[#2a498c]">Case Studies</Link>

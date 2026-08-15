@@ -2,6 +2,7 @@ import SEOHead from "../components/SEOHead";
 import Hero from "./HomeSections/Hero";
 import StatsSection from "./HomeSections/StatsSection";
 import ServiceCarousel from "./HomeSections/ServiceCarousel";
+import ProductsSection from "./HomeSections/ProductsSection";
 import TestimonialSection from "./HomeSections/TestimonialSection";
 import CaseStudySection from "./HomeSections/CaseStudySection";
 import LandingSection from "./HomeSections/LandingSection";
@@ -33,6 +34,7 @@ const Home = () => {
       />
 
       <ServiceCarousel />
+      <ProductsSection />
       <ApproachSection />
 
       <StatsSection />
