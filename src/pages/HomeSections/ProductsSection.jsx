@@ -18,12 +18,16 @@ const ProductsSection = () => {
 
         {/* Product Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {PRODUCTS.map((product) => {
+          {PRODUCTS.map((product, index) => {
             const IconComponent = product.icon;
+            const isLastAndOdd =
+              index === PRODUCTS.length - 1 && PRODUCTS.length % 2 !== 0;
             return (
               <div
                 key={product.id}
-                className="group bg-white rounded-xl border border-slate-200/80 p-6 shadow-xs hover:shadow-md hover:border-slate-300 transition-all duration-300 flex flex-col justify-between"
+                className={`group bg-white rounded-xl border border-slate-200/80 p-6 shadow-xs hover:shadow-md hover:border-slate-300 transition-all duration-300 flex flex-col justify-between ${
+                  isLastAndOdd ? "md:col-span-2" : ""
+                }`}
               >
                 <div>
                   {/* Top Bar: Icon/Logo, Name & Badge */}
