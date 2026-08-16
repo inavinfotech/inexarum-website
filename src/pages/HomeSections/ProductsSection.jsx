@@ -30,7 +30,7 @@ const ProductsSection = () => {
                   <div className="flex items-start justify-between gap-4 mb-4">
                     <div className="flex items-center gap-3">
                       {product.logo ? (
-                        <div className="w-11 h-11 rounded-lg border border-slate-200 bg-white p-1.5 flex items-center justify-center shadow-xs shrink-0">
+                        <div className="w-14 h-14 rounded-lg border border-slate-200 bg-white p-2 flex items-center justify-center shadow-xs shrink-0">
                           <img
                             src={product.logo}
                             alt={`${product.name} logo`}
@@ -39,9 +39,9 @@ const ProductsSection = () => {
                         </div>
                       ) : (
                         <div
-                          className={`w-11 h-11 rounded-lg border flex items-center justify-center shrink-0 ${product.iconBg}`}
+                          className={`w-14 h-14 rounded-lg border flex items-center justify-center shrink-0 ${product.iconBg}`}
                         >
-                          <IconComponent size={22} />
+                          <IconComponent size={26} />
                         </div>
                       )}
                       <div>

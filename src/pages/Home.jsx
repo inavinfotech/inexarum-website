@@ -11,7 +11,6 @@ import TechStackSection from "./HomeSections/TechStackSection";
 import WorkflowTimeline from "./HomeSections/WorkflowTimeline";
 import BlogsSection from "./HomeSections/BlogsSection";
 import CertificationsSection from "./HomeSections/CertificationsSection";
-import ContactSection from "../components/ContactSection";
 import CTABanner from "../components/CTABanner";
 
 const Home = () => {
@@ -63,8 +62,6 @@ const Home = () => {
         to="/contact"
         theme="light"
       />
-
-      <ContactSection />
     </div>
   );
 };

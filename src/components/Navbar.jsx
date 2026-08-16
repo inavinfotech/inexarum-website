@@ -39,14 +39,14 @@ const Navbar = () => {
           <Link
             to="/"
             aria-label="Go to home"
-            className="flex items-center gap-1.5 group"
+            className="flex items-center gap-2 group"
           >
             <img
               src={logo}
               alt="iNexarum logo"
-              className="h-7 w-auto object-contain transition-all duration-300"
+              className="h-7 md:h-9 w-auto object-contain transition-all duration-300"
             />
-            <span className="font-extrabold text-slate-800 text-lg md:text-xl tracking-tight transition-all duration-300">
+            <span className="font-black text-slate-800 text-lg md:text-xl tracking-tight transition-all duration-300">
               iNexarum
             </span>
           </Link>

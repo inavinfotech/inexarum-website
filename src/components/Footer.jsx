@@ -25,9 +25,9 @@ const Footer = () => {
         {/* Top block: Logo, description, and socials */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 pb-6 border-b border-slate-200">
           <div className="text-center md:text-left space-y-2">
-            <Link to="/" className="inline-flex items-center gap-1.5">
-              <img src={logo} alt="iNexarum Logo" className="h-5 w-auto object-contain" />
-              <span className="text-base font-bold text-slate-800 tracking-tight">
+            <Link to="/" className="inline-flex items-center gap-2">
+              <img src={logo} alt="iNexarum Logo" className="h-8 w-auto object-contain" />
+              <span className="text-lg font-extrabold text-slate-800 tracking-tight">
                 iNexarum
               </span>
             </Link>

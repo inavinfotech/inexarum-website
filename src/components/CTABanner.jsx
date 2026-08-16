@@ -41,7 +41,7 @@ const CTABanner = ({
     >
       <div className="flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="text-center md:text-left">
-          <h3 className="text-lg md:text-xl font-bold text-white leading-tight">
+          <h3 className={`text-lg md:text-xl font-bold ${t.text} leading-tight`}>
             {title}
           </h3>
           <p className={`text-xs md:text-sm ${t.subtext} mt-1.5 max-w-xl leading-relaxed`}>

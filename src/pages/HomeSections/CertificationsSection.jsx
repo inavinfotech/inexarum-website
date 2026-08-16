@@ -113,10 +113,10 @@ const CertificationsSection = () => {
                 <h3 className="text-base font-bold text-slate-800 mb-1">
                   {cert.title}
                 </h3>
-                <p className="text-xs font-medium text-slate-400 mb-2">
+                <p className="text-xs font-semibold text-[#2a498c] mb-2">
                   {cert.subtitle}
                 </p>
-                <p className="text-xs text-slate-500 leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed">
                   {cert.description}
                 </p>
               </div>
@@ -157,7 +157,7 @@ const CertificationsSection = () => {
                 <h3 className="text-lg font-bold text-slate-800">
                   {selectedCert.title}
                 </h3>
-                <p className="text-xs font-medium text-slate-400 mt-0.5">
+                <p className="text-xs font-semibold text-[#2a498c] mt-0.5">
                   {selectedCert.subtitle}
                 </p>
               </div>
