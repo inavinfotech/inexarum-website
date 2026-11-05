@@ -54,7 +54,7 @@ const Footer = () => {
               ))}
             </div>
             <div className="flex gap-4 text-[10px] text-slate-500 font-medium">
-              <span className="flex items-center gap-1"><Mail size={11} /> contact@inexarum.in</span>
+              <span className="flex items-center gap-1"><Mail size={11} /> hello@inexarum.in</span>
               <span className="flex items-center gap-1"><Phone size={11} /> +91 92860 70075</span>
             </div>
           </div>
