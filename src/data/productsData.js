@@ -1,8 +1,9 @@
 import accountizeLogo from "../assets/products/accountize-logo.svg";
-import verdureLogo from "../assets/products/verdure-logo.svg";
-import nexassistLogo from "../assets/products/nexassist-logo.webp";
-import launchpadLogo from "../assets/products/launchpad-logo.webp";
-import { Wallet, Cpu, Bot, GraduationCap } from "lucide-react";
+import bizintuitLogo from "../assets/products/bizintuit-logo.webp";
+import verdureLogo from "../assets/products/verdure-logo.webp";
+// import nexassistLogo from "../assets/products/nexassist-logo.webp";
+// import launchpadLogo from "../assets/products/launchpad-logo.webp";
+import { Wallet, Building2, Leaf } from "lucide-react";
 
 export const PRODUCTS = [
   {
@@ -24,24 +25,44 @@ export const PRODUCTS = [
     ],
     link: "https://accountize.in/",
   },
-  // {
-  //   id: "verdure",
-  //   name: "Verdure IoT",
-  //   tagline: "Intelligent IoT Sensor Telemetry & Automation",
-  //   description:
-  //     "Industrial-grade IoT monitoring and telemetry system for smart infrastructure. Experience live sensor data feeds, interactive 3D digital twins, predictive maintenance alerts, and edge device management.",
-  //   icon: Cpu,
-  //   iconBg: "bg-emerald-500/10 text-emerald-600 border-emerald-200",
-  //   badge: "IoT Platform",
-  //   badgeColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
-  //   features: [
-  //     "Real-time sensor telemetry dashboard",
-  //     "3D Digital Twin model visualization",
-  //     "Automated threshold alert system",
-  //     "Low-latency cloud & MQTT sync",
-  //   ],
-  //   link: "/contact",
-  // },
+  {
+    id: "bizintuit",
+    name: "BizIntuit",
+    tagline: "Enterprise Multi-Tenant B2B SaaS ERP",
+    description:
+      "A unified autonomous enterprise ERP operating system connecting Executive Governance, HRMS & Payroll, Sales CRM, Double-Entry Finance, Operations Kanban, and Store MRP in one synchronized real-time workspace.",
+    logo: bizintuitLogo,
+    icon: Building2,
+    iconBg: "bg-blue-600/10 text-[#2a498c] border-blue-200",
+    badge: "Enterprise ERP",
+    badgeColor: "bg-blue-50 text-[#2a498c] border-blue-200",
+    features: [
+      "Multi-tenant isolation with PostgreSQL RLS",
+      "Automated cross-department workflow triggers",
+      "Compound double-entry ledger & GST invoicing",
+      "Integrated HRMS, payroll & inventory MRP",
+    ],
+    link: "https://bizintuit.inexarum.in/",
+  },
+  {
+    id: "verdure",
+    name: "Verdure IoT",
+    tagline: "Intelligent IoT Sensor Telemetry & Automation",
+    description:
+      "Autonomous IoT smart plant irrigation and environmental monitoring system. Features real-time soil telemetry, non-blocking sensor sampling, local Wi-Fi AP mesh pairing, and responsive PWA control.",
+    logo: verdureLogo,
+    icon: Leaf,
+    iconBg: "bg-emerald-500/10 text-emerald-600 border-emerald-200",
+    badge: "IoT Platform",
+    badgeColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
+    features: [
+      "Real-time sensor telemetry dashboard",
+      "Local Wi-Fi mesh & automated pump relays",
+      "Automated threshold alert system",
+      "Low-latency cloud & MQTT sync",
+    ],
+    link: "/contact",
+  },
   // {
   //   id: "nexassist",
   //   name: "NexAssist AI",
